@@ -50,7 +50,7 @@ async function generateAndSendHash(ctx, fileId, fileName) {
             url: fileLink.href,
             method: 'GET',
             responseType: 'stream',
-            maxContentLength: Infinity,
+            maxContentLength: 1024 * 1024 * 1024 * 2 (2GB limit),
         });
 
         response.data.pipe(writer);
